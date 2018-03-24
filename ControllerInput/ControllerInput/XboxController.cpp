@@ -15,15 +15,14 @@ XboxController::XboxController(GamePadIndex player)
 	State.reset();
 }
 
-
 void XboxController::vibrate(float left, float right)
 {
 	XINPUT_VIBRATION vibration;
 
 	memset(&vibration, 0, sizeof(XINPUT_VIBRATION));
 
-	vibration.wLeftMotorSpeed = left;
-	vibration.wRightMotorSpeed = right;
+	vibration.wLeftMotorSpeed = (WORD)left;
+	vibration.wRightMotorSpeed = (WORD)right;
 
 	XInputSetState((int)_playerIndex, &vibration);
 }
