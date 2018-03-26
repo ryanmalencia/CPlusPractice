@@ -14,23 +14,26 @@ private:
 	bool ValidLeaf;
 public:
 	Node();
-	Node(int l) { Level = l; };
+	Node(int l) { Level = l; Node(); };
 	Node(char c, int l)
 	{
 		Character = c;
 		Level = l;
+		Node();
 	};
 	Node(char c, int l, bool leaf)
 	{
 		Character = c;
 		Level = l;
 		ValidLeaf = leaf;
+		Node();
 	};
 	Node(char c, int l, bool leaf, Node* parent)
 	{
 		Character = c;
 		Level = l;
 		ValidLeaf = leaf;
+		Node();
 		Parent = parent;
 	}
 	~Node();
@@ -39,7 +42,7 @@ public:
 	Node* nextSibling();
 	Node* nextChild();
 	void setCharacter(char c);
-	bool Contains(string word);
+	bool Contains(char word[], int length);
 	void addCharacter(char c[], int l, bool leaf);
 	char getCharacter();
 	string print(Node* node);

@@ -19,7 +19,7 @@ void DLB::add(string word)
 {
 	char characters[128];
 	strcpy_s(characters, word.c_str());
-	bool contains = headNode->Contains(word);
+	bool contains = headNode->Contains(characters, (int)word.length());
 	if (!contains)
 	{
 		for (int i = 0; i < word.length() ; i++)
