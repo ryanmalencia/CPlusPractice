@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "DLB.h"
-
+#include <stdlib.h>
+#include "Node.h"
+#include <string>
+#include <iostream>
+#include <fstream>
 
 DLB::DLB()
 {
@@ -8,29 +12,55 @@ DLB::DLB()
 
 DLB::DLB(string filename)
 {
+	headNode = new Node();
 	Filename = filename;
+	ifstream inFile;
+	string word;
+	int i = 0;
+
+	inFile.open(Filename);
+	while (inFile >> word)
+	{
+		//cout << word << endl;
+		if (word.length() > 0 && !headNode->Contains(word))
+		{
+			for (i = 0; i < word.length(); i++)
+			{
+				if (i == (word.length() - 1))
+				{
+					headNode->addCharacter(word, i, true);
+				}
+				else
+				{
+					headNode->addCharacter(word, i, false);
+				}
+			}
+		}
+	}
+	inFile.close();
 }
 
 DLB::~DLB()
 {
+	delete(headNode);
 }
 
 void DLB::add(string word)
 {
-	char characters[128];
-	strcpy_s(characters, word.c_str());
-	bool contains = headNode->Contains(characters, (int)word.length());
+	bool contains = headNode->Contains(word);
+	int i = 0;
+
 	if (!contains)
 	{
-		for (int i = 0; i < word.length() ; i++)
+		for (i = 0; i < word.length() ; i++)
 		{
 			if (i == (word.length() - 1))
 			{
-				headNode->addCharacter(characters, i, true);
+				headNode->addCharacter(word, i, true);
 			}
 			else
 			{
-				headNode->addCharacter(characters, i, false);
+				headNode->addCharacter(word, i, false);
 			}
 		}
 	}

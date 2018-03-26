@@ -42,8 +42,8 @@ public:
 	Node* nextSibling();
 	Node* nextChild();
 	void setCharacter(char c);
-	bool Contains(char word[], int length);
-	void addCharacter(char c[], int l, bool leaf);
+	bool Contains(string word);
+	void addCharacter(string c, int l, bool leaf);
 	char getCharacter();
 	string print(Node* node);
 	string getClosest(string input, int count);

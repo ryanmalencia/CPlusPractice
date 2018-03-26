@@ -41,3 +41,5 @@
 *.ilk
 
 Grades/Debug/data.txt
+Autopredict/Debug/o.txt
+Grades/.vs/Grades/v15/Browse.VC.opendb
