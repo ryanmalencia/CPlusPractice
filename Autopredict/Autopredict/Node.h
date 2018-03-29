@@ -6,12 +6,12 @@ using namespace std;
 class Node
 {
 private:
-	Node* Child;
-	Node* Sibling;
-	Node* Parent;
-	char Character;
-	int Level;
-	bool ValidLeaf;
+	Node * Child = nullptr;
+	Node* Sibling = nullptr;
+	Node* Parent = nullptr;
+	char Character = 0;
+	int Level = 0;
+	bool ValidLeaf = false;
 public:
 	Node();
 	Node(int l) { Level = l; Node(); };

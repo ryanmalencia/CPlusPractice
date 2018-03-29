@@ -39,7 +39,12 @@
 *.idb
 *.pdb
 *.ilk
+*.iobj
+*.ipdb
 
 Grades/Debug/data.txt
 Autopredict/Debug/o.txt
+Autopredict/Debug/*
+Autopredict/Release/*
 Grades/.vs/Grades/v15/Browse.VC.opendb
+*.opendb
