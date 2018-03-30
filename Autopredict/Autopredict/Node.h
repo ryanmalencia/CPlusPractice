@@ -6,34 +6,47 @@ using namespace std;
 class Node
 {
 private:
-	Node * Child = nullptr;
-	Node* Sibling = nullptr;
-	Node* Parent = nullptr;
-	char Character = 0;
-	int Level = 0;
-	bool ValidLeaf = false;
+	Node * Child;
+	Node* Sibling;
+	Node* Parent;
+	char Character;
+	int Level;
+	bool ValidLeaf;
 public:
 	Node();
-	Node(int l) { Level = l; Node(); };
+	Node(int l) {
+		Child = nullptr;
+		Sibling = nullptr;
+		Parent = nullptr;
+		Level = l;
+		Character = 0;
+		ValidLeaf = false;
+	};
 	Node(char c, int l)
 	{
+		Child = nullptr;
+		Sibling = nullptr;
+		Parent = nullptr;
+		ValidLeaf = false;
 		Character = c;
 		Level = l;
-		Node();
 	};
 	Node(char c, int l, bool leaf)
 	{
+		Child = nullptr;
+		Sibling = nullptr;
+		Parent = nullptr;
 		Character = c;
 		Level = l;
 		ValidLeaf = leaf;
-		Node();
 	};
 	Node(char c, int l, bool leaf, Node* parent)
 	{
+		Child = nullptr;
+		Sibling = nullptr;
 		Character = c;
 		Level = l;
 		ValidLeaf = leaf;
-		Node();
 		Parent = parent;
 	}
 	~Node();
@@ -52,4 +65,3 @@ private:
 	string newBest(Node* best, bool changeLast, int count);
 	Node* nextBestNode(Node* best, bool changeLast, int begin);
 };
-
