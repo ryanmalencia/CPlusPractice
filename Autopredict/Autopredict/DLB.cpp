@@ -24,7 +24,7 @@ DLB::DLB(string filename)
 		//cout << word << endl;
 		if (word.length() > 0 && !headNode->Contains(word))
 		{
-			for (i = 0; i < word.length(); i++)
+			for (i = 0; i < (int)word.length(); i++)
 			{
 				if (i == (word.length() - 1))
 				{
@@ -52,7 +52,7 @@ void DLB::add(string word)
 
 	if (!contains)
 	{
-		for (i = 0; i < word.length() ; i++)
+		for (i = 0; i < (int)word.length() ; i++)
 		{
 			if (i == (word.length() - 1))
 			{
